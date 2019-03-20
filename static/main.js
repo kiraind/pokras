@@ -48,7 +48,7 @@ function pokrasit(text, seed) {
     return text.split('').map((char, i) => {
         const key = char.toUpperCase()
         if(map[key]) {
-            return map[key].safeGet(i * (seed % 100) + seed)
+            return map[key].safeGet(i * (seed % 10) + seed)
         } else {
             return char
         }
