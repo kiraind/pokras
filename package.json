@@ -1,0 +1,19 @@
+{
+  "name": "pokras",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiraind/pokras.git"
+  },
+  "author": "kiraind",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiraind/pokras/issues"
+  },
+  "homepage": "https://github.com/kiraind/pokras#readme"
+}
