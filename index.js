@@ -56,12 +56,8 @@ const serverHandler = function (request, response) {
 
 if(production) {
     http.createServer(function (request, response) {
-        // const usersUrl = url.parse(request.url)
-        // usersUrl.protocol = 'https'
-        // const to = usersUrl.href
-
         response.writeHead(302, {
-            'Location': `https://${request.url}`
+            'Location': `https://rurururururu.ru${request.url}`
         })
 
         response.end()
