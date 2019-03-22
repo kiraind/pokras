@@ -1,13 +1,17 @@
 const http = require('http')
+const https = require('https')
+
 const url = require('url')
 const path = require('path')
 const fs = require('fs')
 
-const port = process.argv[2] || 8888
+const production = Boolean(process.env.PRODUCTION)
+
+const port = production ? 443 : 8888
 
 let reqCount = 0
 
-http.createServer(function (request, response) {
+const serverHandler = function (request, response) {
     console.log( 'req #' + (reqCount++) + ': ' + request.connection.remoteAddress )
 
     const uri = url.parse(request.url).pathname
@@ -48,6 +52,30 @@ http.createServer(function (request, response) {
             response.end()
         })
     })
-}).listen(parseInt(port, 10))
+}
 
-console.log('Static file server running at\n  => http://localhost:' + port + '/\nCTRL + C to shutdown')
+if(production) {
+    http.createServer(function (request, response) {
+        const usersUrl = url.parse(request.url)
+        usersUrl.protocol = 'https'
+        const to = usersUrl.href
+
+        response.writeHead(302, {
+            'Location': to
+        })
+
+        response.end()
+    }).listen(80)
+
+    const options = {
+        key: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/cert.pem'),
+        ca: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/chain.pem')
+    }
+
+    https.createServer(options, serverHandler).listen(port)
+} else {
+    http.createServer(serverHandler).listen(port)
+}
+
+console.log('Server running at localhost.\n\nCTRL + C to shutdown')
