@@ -1,0 +1,16 @@
+{
+    "name": "ПØҜ₽ĀÇƘĀ",
+    "short_name": "ПØҜ₽ĀÇƘĀ",
+    "description": "Рересядь на новую визуальную культуру",
+    "lang": "ru-RU",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#f5f5f5",
+    "icons": [
+        {
+        "src": "appicon.png",
+        "sizes": "256x256",
+        "type": "image/png"
+        }
+    ]
+}
