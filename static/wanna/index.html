@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>я хочю</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext');        
+    
+        * {
+            margin: 0;
+            font-family: 'Montserrat';
+            line-height: 1.2;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #iwant {
+            font-size: 45px;
+        }
+
+        #text {
+            font-size: 20px;
+        }
+
+        #blink {
+            transition: opacity 0.2s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="iwant">я&nbsp;хочу</div>
+        <div id="text">повес<span id="blink">ел</span>иться</div>
+    </div>
+    <script>
+        var blink = document.getElementById('blink');
+
+        var on = true;
+
+        setInterval(function() {
+            on = !on;
+
+            if(on) {
+                blink.style.opacity = 1;
+            } else {
+                blink.style.opacity = 0;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
