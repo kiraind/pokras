@@ -90,9 +90,9 @@ body {
     width: 100%;
 }
 
-.main-half.left {
-    /* background-color: red; */
-}
+/* .main-half.left {
+    background-color: red;
+} */
 
 .text {
     outline: none;
@@ -109,14 +109,14 @@ body {
     color: #161616;
 }
 
-#input {
+/* #input {
     
-}
+} */
 
-.main-half.right {
-    /* background-color: blue; */
+/* .main-half.right {
+    background-color: blue;
 
-}
+} */
 
 @media screen and (max-width: 720px) {
     .main {
@@ -180,4 +180,9 @@ body {
     font-size: 16px;
     margin-bottom: 16px;
     color: #414141;
+}
+
+.footer a, .footer a:visited {
+    color: #0000ee;
+    text-decoration: underline;
 }

@@ -5,14 +5,16 @@ const url = require('url')
 const path = require('path')
 const fs = require('fs')
 
-const production = Boolean(process.env.PRODUCTION)
+if(!process.argv[2]) {
+    throw new Error('specify port')
+}
 
-const port = production ? 443 : 8888
+const port = parseInt(process.argv[2], 10)
 
 let reqCount = 0
 
 const serverHandler = function (request, response) {
-    console.log( 'req #' + (reqCount++) + ': ' + request.connection.remoteAddress )
+    // console.log( 'req #' + (reqCount++) + ': ' + request.connection.remoteAddress )
 
     const uri = url.parse(request.url).pathname
     let filename = path.join(process.cwd(), 'static', uri)
@@ -54,24 +56,6 @@ const serverHandler = function (request, response) {
     })
 }
 
-if(production) {
-    http.createServer(function (request, response) {
-        response.writeHead(302, {
-            'Location': `https://rurururururu.ru${request.url}`
-        })
+http.createServer(serverHandler).listen(port)
 
-        response.end()
-    }).listen(80)
-
-    const options = {
-        key: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/privkey.pem'),
-        cert: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/cert.pem'),
-        ca: fs.readFileSync('/etc/letsencrypt/live/rurururururu.ru/chain.pem')
-    }
-
-    https.createServer(options, serverHandler).listen(port)
-} else {
-    http.createServer(serverHandler).listen(port)
-}
-
-console.log('Server running at localhost.\n\nCTRL + C to shutdown')
+console.log(`Server running at http://localhost:/${port}`)
