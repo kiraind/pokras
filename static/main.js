@@ -89,7 +89,8 @@ const output    = document.getElementById('output')
 const clear     = document.getElementById('clear-btn')
 const copy      = document.getElementById('copy-btn')
 
-const seed = 5240543 + 78//Math.floor(Math.random() * 10000000)
+// Math.floor(Math.random() * 10000000)
+const seed = 5240621
 
 input.focus()
 
@@ -112,7 +113,7 @@ copy.addEventListener('click', () => {
 
 if('serviceWorker' in navigator) {
     navigator.serviceWorker
-        .register('/sw.js')
+        .register('https://rurururururu.ru/pokras/sw.js')
         .then(function() {
             console.log("Service Worker Registered");
         })
