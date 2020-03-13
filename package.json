@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "forever start index.js 8004",
     "stop": "forever stop index.js",
-    "dev": "node index.js"
+    "dev": "node index.js 8080"
   },
   "repository": {
     "type": "git",

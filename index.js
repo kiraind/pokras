@@ -58,4 +58,4 @@ const serverHandler = function (request, response) {
 
 http.createServer(serverHandler).listen(port)
 
-console.log(`Server running at http://localhost:/${port}`)
+console.log(`Server running at http://localhost:${port}/`)

@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #fafafa;
 }
 
 .main {
@@ -175,14 +175,13 @@ body {
     justify-content: space-between;
 }
 
-.footer {
+footer {
     text-align: center;
     font-size: 16px;
     margin-bottom: 16px;
     color: #414141;
 }
 
-.footer a, .footer a:visited {
-    color: #0000ee;
-    text-decoration: underline;
+footer a {
+    color: #2a2a2a;
 }
